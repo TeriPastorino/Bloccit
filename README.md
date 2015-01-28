@@ -25,7 +25,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-
+Making a change to be able to save and push to repo/problems with origin
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
