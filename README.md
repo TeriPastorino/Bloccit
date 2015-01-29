@@ -8,13 +8,15 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby 2.2.0
 
 * System dependencies
 
-* Configuration
+* deployed on Heroku tpasto_bloccit
+git@heroku.com:tpasto_bloccit.git
 
-* Database creation
+* Postgresql
+
 
 * Database initialization
 
