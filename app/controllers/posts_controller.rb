@@ -1,12 +1,23 @@
 class PostsController < ApplicationController
+  
   def index
-    @posts = Post.all
-    authorize @posts
+    @posts = PostPolicy::Scope.new(current_user, Post).resolve    
   end
 
   def show
     @post = Post.find(params[:id])
+    authorize @post
+    # this is raising a nil class error, need to go back and figure this out
+   # if @post.any?
+      redirect_to @post
+    #else
+   #   flash[:error] = "You are not authorized to view posts, Please Register"
+    #  render :sign_up
   end
+end
+
+
+
 
   def new
     @post = Post.new
@@ -23,8 +34,8 @@ class PostsController < ApplicationController
     else
       flash[:error] = "There was an error saving the post. Please try again."
       render :new
-      end
     end
+  end
 
   def edit
     @post = Post.find(params[:id])
@@ -42,4 +53,5 @@ class PostsController < ApplicationController
       render :edit
     end
   end
-end
+
+
