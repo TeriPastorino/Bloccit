@@ -1,7 +1,8 @@
 class TopicsController < ApplicationController
   def index
-      @topics = Topic.all
-      authorize @topics
+      @topic = Topic.new
+
+      authorize @topic
   end
 
   def new
@@ -10,9 +11,9 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:id])
+      @topic = Topic.find(params[:id])
       @posts = @topic.posts
-    authorize @topic
+      authorize @topic
   end
 
   def edit

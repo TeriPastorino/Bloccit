@@ -1,20 +1,10 @@
+@import "bootstrap";
 
- @import "bootstrap";
+ .user-info {
+   margin-top: 9px;
+ }
  
-.user-info {
-  margin-top: 10px;
-}
+ .nav {
+   margin-top: 5px;
+ }
 
-.nav{
-  margin-top: 5px;
-}
-
-.social-btn {
-  position: relative;
-  width: 100px;
-  height: 20px;
-  background: #33ccff;
-  border: 10px;  
-  padding: 10px;
-  margin: 20px;
-}
