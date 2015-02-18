@@ -55,7 +55,7 @@ class PostsController < ApplicationController
     authorize @post
 
     if @post.destroy
-      flash[:notice] = "\"# {title}\" was successfully deleted."
+      flash[:notice] = "\"#{title}\" was successfully deleted."
       redirect_to @topic
     else
       flash[:error] = "There was an error deleting the post."

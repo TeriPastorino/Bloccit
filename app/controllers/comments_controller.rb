@@ -23,8 +23,8 @@ def create
 end
 
 def destroy
-  @topic = Topic.find(params[:topic_id])
-  @post = @topic.posts.find(params[:post_id])
+  #@topic = Topic.find(params[:topic_id]) - change shallow nesting
+  @post = Post.find(params[:post_id])
   @comment = @post.comments.find(params[:id])
 
   authorize @comment
