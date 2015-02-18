@@ -1,18 +1,16 @@
-
- 
-<!-- needs to take topic and post local variable
- -->
-<div class="media"
+<div class="media">
+  <%= link_to '#', class: 'pull-left' do %>
+    <!-- <%= image_tag(comment.user.avatar.small.url) if comment.user.avatar? %> -->
+  <!--<% end %>-->
   <div class="media-body">
-  <small>
-    <%=link_to comment.user.name, comment.user %> commented <%= time_ago_in_words(comment.created_at) %> ago
-    <% if policy(Post.new).create? %> 
-    <% end %>
-  </small>  
+    <small>
+      <%= comment.user.name %> commented <%= time_ago_in_words(comment.created_at) %> ago
+      <% if policy(comment).destroy? %>
+        | <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
+      <% end %>
+    </small>
+    <p><%= comment.body %></p>
   </div>
-  <p><%=comment.body%></p>
-</div> 
-
-
+</div>
 
  

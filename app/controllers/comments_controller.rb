@@ -22,6 +22,23 @@ def create
   redirect_to [@topic, @post]  # post show page, nested under topic
 end
 
+def destroy
+  @topic = Topic.find(params[:topic_id])
+  @post = @topic.posts.find(params[:post_id])
+  @comment = @post.comments.find(params[:id])
+
+  authorize @comment
+  if @comment.destroy
+    flash[:notice] = "Comment was removed"
+    redirect_to [@topic, @post]
+  else
+    flash[:error] = "Sorry you are not authorized to delete this comment"
+    redirect_to [@topic, @post]
+  end
+end
+
+
+
 
 
 private
