@@ -1,6 +1,5 @@
-
-
 <%= form_for [topic, post, comment] do |f| %>
+  <div class="media">
   <h2><%=Comment%></h2>
 
   <% if comment.errors.any? %>
@@ -10,20 +9,21 @@
         <% comment.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
-      </ul>
-      <% end %>
+      </ul>   
     </div>
-    <% end %>
-
-   <div class="col-md-4"
+  <% end %>
   
-    <%= form_for :comment do |f| %>
-  <p>
-    <%= f.label :Body %>
-    <%= f.text_field :title %>
-    <%= f.submit :"create comment" %>
-  </p>
+
+  <div class="col-md-4" >    
+    <p>
+      <%= f.label :body %>
+      <%= f.text_field :body %>
+      <%= f.submit "create comment" %>
+    </p>
+  </div>
+
 <% end %>
+</div>
 
 
 

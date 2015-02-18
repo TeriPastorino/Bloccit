@@ -4,6 +4,7 @@ def create
    
   #@comment = current_user.comments.build(comment_params)
   @post = Post.find(params[:post_id])
+  @topic = @post.topic
 
   # @comment = Comment.new(comment_params)
   # @comment.user = current_user
@@ -18,7 +19,7 @@ def create
   else
     flash[:error] = "There was an error saving the comment. Please try again."
   end
-  redirect_to [@post.topic, @post]  # post show page, nested under topic
+  redirect_to [@topic, @post]  # post show page, nested under topic
 end
 
 
