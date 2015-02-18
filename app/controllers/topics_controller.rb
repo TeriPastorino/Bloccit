@@ -42,6 +42,22 @@ def update
   end
 end
 
+def destroy
+  @topic = Topic.find(params[:id])
+  name = topic.name 
+  
+  authorize @topic
+  if @topic.destroy
+    flash[notice:] ="\#{name}\" was deleted successfully."
+    redirect_to topics_path
+  else
+    flash[:error] = "There was an error deleting topic."
+    render :show
+  end
+end
+
+
+
 private
   def topic_params
     params.require(:topic).permit(:name, :description, :public)
