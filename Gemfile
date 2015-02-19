@@ -44,7 +44,11 @@ gem 'figaro', '1.0'
 gem 'pundit'
 gem 'simple_form'
 gem 'redcarpet'
+
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+
+gem 'will_paginate', '~> 3.0.5'
+
 
