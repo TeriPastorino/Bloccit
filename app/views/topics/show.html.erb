@@ -11,7 +11,9 @@
       <div class="media">
         <div class="media-body"> 
           <h4 class ="media-heading">
+
             <%= link_to (post.markdown_title), [@topic, post] %>
+            <p><%= image_tag(@post.image_url) if @post.image? %></p>
           </h4>
 
             <small>
@@ -20,6 +22,8 @@
               <%= post.user.name %><br/>
               <%= post.comments.count %> Comments
             </small>
+
+            
 
         </div>
       </div>
