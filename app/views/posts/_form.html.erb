@@ -10,21 +10,16 @@
     </div>
 
   <% end %>
-  
 
   <div class="<%= form_group_tag(post.errors[:title]) %>">
-        <% if current_user.image? %>
-          <div class="form-group">
-            <p>Current image</p>
-            <%= image_tag( current_user.image.profile.url ) %>
-          </div>
-        <% end %>
-        <div class="form-group">
-          <%= f.label :image %>
-          <%= f.file_field :image %>
-        </div>
-  </div>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
+    </div>
 
+  <div class="<%= form_group_tag %>">
+    <%= f.label :image %>
+    <%= f.file :title, image: 'form-control' %>
+  </div>
 
   <div class="<%=form_group_tag(post.errors[:body])%>">
     <%= f.label :body %>
@@ -35,7 +30,4 @@
   <div class="form-group">
     <%= f.submit "Save", class: 'btn btn-success' %>
   </div>
-      </div>
-
 <% end %>
-
