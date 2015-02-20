@@ -7,9 +7,11 @@
         <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
         submitted <%= time_ago_in_words(@post.created_at) %> ago by
         <%= @post.user.name %>
-        <%= image_tag(@post.image.url) if @post.image? %>  
       </small>
+    
     <p><%= @post.markdown_body %></p>
+    <p><%= image_tag(@post.image.url) if @post.image? %></p>  
+
   </div>
   
   <%= render partial: 'comments/form', locals: {topic: @topic, post: @post, comment: @comment} %>

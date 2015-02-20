@@ -23,11 +23,12 @@
               <%= post.comments.count %> Comments
             </small>
 
-            
+            <p><%= image_tag(@post.image_url) if @post.image? %></p>
 
         </div>
       </div>
     <% end %>
+        
         <%= will_paginate @posts %>
 
   </div>
