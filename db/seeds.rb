@@ -31,6 +31,9 @@ topics = Topic.all
     title:    Faker::Lorem.sentence,
     body:     Faker::Lorem.paragraph
     )
+
+  post.update_attributes!(created_at: rand(10.minutes .. 1.year).ago)
+  post.update_rank
 end
 posts = Post.all 
 

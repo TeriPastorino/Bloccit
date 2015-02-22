@@ -1,7 +1,11 @@
+<% if policy(Vote.new).create? %>
 
-<div class="pull-left.vote-arrows">
+
+
+<div class="pull-left vote-arrows">
+  
   <div>
-  <%= link_to " ", '#', class: 'glypicon glyphicon-chevron-up' %>
+  <%= link_to " ", post_up_vote_path(post), class: 'glyphicon glyphicon-chevron-up', method: :post %>
   </div>
 
   <div>
@@ -9,7 +13,8 @@
   </div>
 
   <div>
-  <%= link_to " ", '#', class: 'glypicon glyphicon-chevron-down' %>
+  <%= link_to " ", post_down_vote_path(post), class: 'glyphicon glyphicon-chevron-down', method: :post %>
   </div>
-</div>
+  </div>
+<% end %>
 
