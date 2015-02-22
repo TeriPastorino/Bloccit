@@ -12,8 +12,11 @@
         <div class="media-body"> 
           <h4 class ="media-heading">
 
+                <% if post.image? %>
+                <div class='thumb-image'><%= image_tag(post.image.thumb.url) %> </div>
+                <% end %>
+
             <%= link_to (post.markdown_title), [@topic, post] %>
-            <p><%= image_tag(@post.image_url) if @post.image? %></p>
           </h4>
 
             <small>
@@ -23,7 +26,7 @@
               <%= post.comments.count %> Comments
             </small>
 
-            <p><%= image_tag(@post.image_url) if @post.image? %></p>
+            
 
         </div>
       </div>

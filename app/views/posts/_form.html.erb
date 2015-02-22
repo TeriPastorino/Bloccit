@@ -15,16 +15,17 @@
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
     </div>
-
-  <div class="<%= form_group_tag %>">
-    <%= f.label :image %>
-    <%= f.file :title, image: 'form-control' %>
-  </div>
-
+  
   <div class="<%=form_group_tag(post.errors[:body])%>">
     <%= f.label :body %>
     <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter post body" %>
     </div>
+
+    <%= form_group_tag(post.errors[:image]) do %>
++    <%= f.label :image %>
++    <%= f.file_field :image %>
++  <% end %>
++
 
 
   <div class="form-group">
