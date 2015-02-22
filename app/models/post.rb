@@ -11,7 +11,6 @@ class Post < ActiveRecord::Base
   #validates :topic, presence: true
   #rvalidates :user, presence: true
 
-  after_create :create_vote
   
   
  mount_uploader :image, ImageUploader
@@ -56,5 +55,8 @@ class Post < ActiveRecord::Base
   def create_vote
     user.votes.create(value: 1, post: self)
   end
+
+  
+  after_create :create_vote
 
 end

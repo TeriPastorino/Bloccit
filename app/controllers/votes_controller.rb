@@ -3,22 +3,24 @@ class VotesController < ApplicationController
   before_action :load_post_and_vote
 
   def up_vote
-    update_vote(1)
+    update_vote!(1)
     redirect_to :back
   end
 
   def down_vote
-    update_vote(-1)
+    update_vote!(-1)
     redirect_to :back
   end
 
-
+  
   private 
   def load_post_and_vote
-    #code here
+    #find post
+    @post = Post.find(params[:id])
+    @vote = @post.votes.where(user_id: current_user.id).first
   end
 
-  def update_vote(new_value)
+  def update_vote!(new_value)
     if @vote # if it exists, update it
       authorize @vote, :update?
       @vote.update_attribute(:value, new_value)
