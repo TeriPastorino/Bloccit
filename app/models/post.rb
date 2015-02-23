@@ -8,8 +8,8 @@ class Post < ActiveRecord::Base
 
   validates :title, length: { minimum: 5 }, presence: true
   validates :body, length: { minimum: 20 }, presence: true
-  #validates :topic, presence: true
-  #rvalidates :user, presence: true
+  validates :topic, presence: true
+  validates :user, presence: true
 
   
   
@@ -44,7 +44,7 @@ class Post < ActiveRecord::Base
     render_as_markdown(self.body)
   end
 
-  private 
+  
   def render_as_markdown(markdown)
     renderer = Redcarpet::Render::HTML.new
     extensions = {fenced_code_blocks: true, highlight: true}
@@ -57,6 +57,5 @@ class Post < ActiveRecord::Base
   end
 
   
-  after_create :create_vote
 
 end
