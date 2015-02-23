@@ -1,19 +1,24 @@
 <h1><%= @topic.name %></h1>
-
 <% if policy( @topic ).update? %>
   <%= link_to "Edit Topic", edit_topic_path, class: 'btn btn-success' %>
   <% end %>
+  
 
   <div class="row">
     <div class="col-md-8">
     <p class="lead"><%= @topic.description %></p>
     <% @posts.each do |post| %>
       <div class="media">
+          <%= render partial: 'votes/voter', locals: { post: post } %>
+
         <div class="media-body"> 
           <h4 class ="media-heading">
 
+                <% if post.image? %>
+                <div class='thumb-image'><%= image_tag(post.image.thumb.url) %> </div>
+                <% end %>
+
             <%= link_to (post.markdown_title), [@topic, post] %>
-            <p><%= image_tag(@post.image_url) if @post.image? %></p>
           </h4>
 
             <small>
@@ -23,7 +28,7 @@
               <%= post.comments.count %> Comments
             </small>
 
-            <p><%= image_tag(@post.image_url) if @post.image? %></p>
+            
 
         </div>
       </div>

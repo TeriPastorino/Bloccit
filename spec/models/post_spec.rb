@@ -5,7 +5,7 @@ describe Post do
 
     # ?seed db with 3 posts that have upvote and 2 that have downvote
     before do
-      @post= Post.create(title: 'post title', body: 'post body')
+      @post= Post.create(title: 'Post title', body: 'Post bodies must be pretty long.')
       3.times { @post.votes.create(value: 1) }
       2.times { @post.votes.create(value: -1) }
       end
