@@ -1,0 +1,4 @@
+class Favorites < ApplicationPolicy
+
+
+end
