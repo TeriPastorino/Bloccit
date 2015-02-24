@@ -1,4 +1,0 @@
-class Favorites < ApplicationPolicy
-
-
-end

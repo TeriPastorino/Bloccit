@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
   belongs_to :topic
   has_many :favorites, dependent: :destroy
     
-  end
+  
 
   default_scope { order('rank DESC')}
 
@@ -58,7 +58,7 @@ class Post < ActiveRecord::Base
   def create_vote
     user.votes.create(value: 1, post: self)
   end
-
+end
   
 
 
