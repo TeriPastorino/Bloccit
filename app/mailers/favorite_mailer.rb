@@ -1,5 +1,6 @@
-class FavoriteMailer < ApplicationMailer
-  default from: tpasto@comcast.net
+
+class FavoriteMailer < ActionMailer::Base
+  default from: "tpasto@comcast.net"
 
   def new_comment(user, post, comment)
  
