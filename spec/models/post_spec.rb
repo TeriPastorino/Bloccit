@@ -41,8 +41,8 @@ describe Post do
 
 
   end
-
-  def associated_post(options={})
+=begin
+ def associated_post(options={})
       post_options = {
        title: 'Post title',
        body: 'Post bodies must be pretty long.',
@@ -59,5 +59,5 @@ describe Post do
        user.save
        user
      end
-  
+=end
 end
