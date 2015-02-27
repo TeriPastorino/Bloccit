@@ -14,7 +14,7 @@
           <div class='image'><%=image_tag(@post.image.url) %></div>
       <% end %> 
 
-
+<div>
   </div>
   
   <%= render partial: 'comments/form', locals: {topic: @topic, post: @post, comment: @comment} %>
@@ -39,4 +39,4 @@
     <%= render partial: 'favorites/favorite', locals: { topic: @topic, post: @post } %>
   </div>
 </div>
-
+</div>
