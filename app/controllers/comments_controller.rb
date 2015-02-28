@@ -8,11 +8,11 @@ def create
 
   # @comment = Comment.new(comment_params)
   # @comment.user = current_user
-
+  @comments = @post.comments
   @comment = current_user.comments.build(comment_params)
   @comment.post = @post
 
-  #authorize @comment
+  authorize @comment
 
   if @comment.save
     flash[:notice] = "Comment was saved."    
@@ -25,6 +25,7 @@ end
 def destroy
   #@topic = Topic.find(params[:topic_id]) - change shallow nesting
   @post = Post.find(params[:post_id])
+  @topic = @post.topic
   @comment = @post.comments.find(params[:id])
 
   authorize @comment

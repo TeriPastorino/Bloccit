@@ -1,7 +1,7 @@
 Bloccit::Application.routes.draw do
 
   devise_for :users
-  resources :users, only: [:update]
+  resources :users, only: [:update, :show]
 # creates our routes
   resources :topics do
     resources :posts, except: [:index]

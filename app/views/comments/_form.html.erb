@@ -1,6 +1,5 @@
-<%= form_for [post, comment] do |f| %>
+<%= form_for [post, post.comments.build] do |f| %>
   <div class="media">
-  <h2><%=Comment%></h2>
 
   <% if comment.errors.any? %>
     <div class="alert alert-danger">
@@ -14,14 +13,12 @@
   <% end %>
   
 
-  <div class="col-md-4" >    
-    <p>
-      <%= f.label :body %>
-      <%= f.text_field :body %>
-      <%= f.submit "create comment" %>
-    </p>
+    <%= form_group_tag(comment.errors[:body]) do %>
+      <%= f.text_area :body, rows: 4, class: 'form-control', placeholder: "Enter Comment" %>
+      <% end %>
+  <div class="form-group">
+      <%= f.submit "Save comment", class: 'btn btn-success' %>
   </div>
-
 <% end %>
 </div>
 
