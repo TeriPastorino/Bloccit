@@ -3,7 +3,8 @@ class PostsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
     @comments = @post.comments
-    @comment = Comment.new
+    #@comment = @post.comment.build
+    
     authorize @topic
     authorize @post
   end
@@ -68,6 +69,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image, :image_cache)
+    params.require(:post).permit(:title, :body, :image)
   end
 end

@@ -34,7 +34,7 @@
     <% end %>
 
     <h3>Edit personal information</h3>
-    <%= simple_form_for(current_user) do |f| %>
+    <%= form_for(current_user) do |f| %>
       <div class="form-group">
         <%= f.label :name %>
         <%= f.text_field :name, class: 'form-control', placeholder: "Enter name", autofocus: true %>

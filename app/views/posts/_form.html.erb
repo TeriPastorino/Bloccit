@@ -24,6 +24,7 @@
   <div class="<%= form_group_tag(post.errors[:image])%>">
     <%= f.label :image %>
     <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
   </div>
 
 

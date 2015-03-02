@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   
- 
+ #? no index
 
   def update
     if current_user.update_attributes(user_params)
@@ -23,6 +23,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :avatar, :avatar_cache, :public, :email_favorites)
+    params.require(:user).permit(:name, :avatar, :email_favorites)
   end
 end
