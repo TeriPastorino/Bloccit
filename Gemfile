@@ -18,6 +18,7 @@ end
 group :test do
   gem 'rspec-rails', '~> 3.1.0'
   gem 'capybara'
+    gem 'database_cleaner'
 end
 
 gem 'bootstrap-sass'
