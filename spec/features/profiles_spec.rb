@@ -29,7 +29,13 @@ describe "Visiting profiles" do
 
   describe "signed is as admin" do
 
-    before { login_as create(:user, role: 'admin'), scope: :user}
+    before do 
+      @user = create(:user)
+      @post = associated_post(user: @user)
+      @comment = @user.comments.build(post: @post, body: "A Comment")
+      allow(@comment).to receive(:send_favorite_emails)
+      login_as(@user, :scope => :user)
+    end
 
     it "shows profile" do
       visit user_path(@user)

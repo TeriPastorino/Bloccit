@@ -27,4 +27,15 @@ class User < ActiveRecord::Base
     role == 'moderator'
   end
 
+  def self.top_rated
+    self.select('users.*') #select all attributes of the user
+        .select('COUNT(DISTINCT comments.id) AS comments_count') #count the comments made by each user
+        .select('COUNT(DISTINCT posts.id) AS posts_count') #count the posts made by each user
+        .select('COUNT(DISTINCT comments.id) + COUNT(DISTINCT posts.id) AS rank') # add the comment count to the post count and label the sum as 'rank'
+        .joins(:posts) # Ties the posts table to the users table, via the user_id
+        .joins(:comments) #Ties the comments table to the users table via the user_id
+        .group('users.id') #Instructs the databse to group the results to that each user will be returned in a distinct row
+        .order('rank DESC') # Instructs the database to order the results in descending orer, by the rank that we created in this query. (rank = comment count + post count)
+  end
+
 end
