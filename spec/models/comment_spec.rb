@@ -10,6 +10,8 @@ require 'rails_helper'
        @post = create(:post)
        @user = create(:user)
        @comment = create(:comment, post: @post, user_id: 10000)
+            binding.pry
+
      end
 
      #We don't need to change anythign for this condition;
