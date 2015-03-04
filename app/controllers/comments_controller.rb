@@ -1,19 +1,27 @@
 class CommentsController < ApplicationController
 
 def create
-   
-   @topic = Topic.find(params[:topic_id])
-   @post = @topic.posts.find(params[:post_id])
-    @comment = @post.comments.new(comment_params)
-    @comment.user_id = current_user.id
-  #authorize @comment
+    @post = Post.find(params[:post_id])
+    @comments = @post.comments
 
-  if @comment.save
-      redirect_to [@topic, @post], notice: "Comment saved successfully."
+    @comment = current_user.comments.build( comment_params )
+    @comment.post = @post
+      @new_comment = Comment.new
+
+    authorize @comment
+
+    if @comment.save
+      flash[:notice] = "Comment was created."
     else
-      redirect_to [@topic, @post], notice: "Comment failed to save."
+      flash[:error] = "There was an error saving the comment. Please try again."
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
+
 
 def destroy
   #@topic = Topic.find(params[:topic_id]) - change shallow nesting
