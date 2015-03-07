@@ -33,13 +33,11 @@
 
 </br>
 
-<div class="row">
-  <h2>Comments</h2>
-  <div class='col-md-12'>
-      <%= render partial: 'comments/comment', collection: @comments %>
-    </div>
+<h2>Comments</h2>
+   <div class='js-comments'>
+    <%= render partial: 'comments/comment', collection: @comments %>
+   </div>
     <div class='new-comment'>
       <%= render 'comments/form' %>
     </div>
-  </div>
-</div>
+  

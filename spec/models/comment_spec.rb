@@ -9,9 +9,13 @@ require 'rails_helper'
      before do
        @post = create(:post)
        @user = create(:user)
+<<<<<<< HEAD
        @comment = create(:comment, post: @post, user_id: 10000)
             binding.pry
 
+=======
+       @comment = create(:comment, post: @post, user: @user)
+>>>>>>> master
      end
 
      #We don't need to change anythign for this condition;
