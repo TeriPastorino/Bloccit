@@ -9,7 +9,7 @@ require 'rails_helper'
      before do
        @post = create(:post)
        @user = create(:user)
-       @comment = create(:comment, post: @post, user_id: 10000)
+       @comment = create(:comment, post: @post, user: @user)
      end
 
      #We don't need to change anythign for this condition;
